@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Votre panier
+{% endblock %}
+
+{% block body %}
+    <div class="bg-light p-3">
+        <h1>Votre panier</h1>
+    </div>
+
+    {% if items | length > 0 %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.article.id }}</td>
+                        <td>{{ item.article.title }}</td>
+                        <td>{{ item.article.price }}€</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.article.price * item.quantity }}€</td>
+                        <td>
+                            <a href="{{ path('cart_remove', {'id': item.article.id}) }}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4" class="text-right">
+                        Total :
+                    </th>
+                    <th>{{ total }}€</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p>Surprise, c'est vide !</p>
+    {% endif %}
+
+{% endblock %}

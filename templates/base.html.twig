@@ -17,29 +17,32 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('site')}}">Articles Disponibles
+                    <a class="nav-link m-2" href="{{ path('site')}}">Articles Disponibles
                     <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('site_create') }}">Ajouter articles</a>
+                    <a class="nav-link m-2" href="{{ path('site_create') }}">Ajouter articles</a>
                 </li>
                  
                 
           
                 {% if not app.user %}
                 <li class="nav-item">
-                    <a href="{{ path('security_login') }}" class="nav-link"> Connexion </a>
+                    <a href="{{ path('security_login') }}" class="nav-link m-2"> Connexion </a>
                 </li>
                 {% else %}
                  <li class="nav-item">
-                    <a href="{{ path('security_logout') }}" class="nav-link"> Deconnexion </a>
+                    <a href="{{ path('security_logout') }}" class="nav-link m-2"> Deconnexion </a>
                 </li>
                 {% endif %}
                 {%  if not app.user %}
                 <li class="nav-item">
-                 <a href="{{ path('security_registration') }}" class="nav-link">Inscription</a>
+                 <a href="{{ path('security_registration') }}" class="nav-link m-2">Inscription</a>
                 </li>
-                 {% endif %}
+                 {% endif %} 
+                 <li class="nav-item">
+                        <a class="nav-link m-2" href="{{ path('cart_index') }}">Panier</a>
+                    </li>
             </ul>
         </div> 
     </nav>

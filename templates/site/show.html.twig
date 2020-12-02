@@ -7,7 +7,11 @@
         <div class="content p-2">
             <img src={{ article.image }} alt="" class="pr-4">
             {{ article.content | raw }}
+            <div class="mb-4">Prix : {{ article.price | raw }}€
+            </div> 
         </div>
+         <a href="{{  path('cart_add', { 'id' : article.id })  }}" class="btn btn-primary ml-3">Ajouter au panier</a>
+
     </article>
     <section id="commentaires">
     <!--<h1>{{ article.comments | length }} Commentaires</h1>
