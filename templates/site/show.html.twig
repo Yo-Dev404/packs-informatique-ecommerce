@@ -5,7 +5,7 @@
         <h2 class="mb-4 mt-4">{{ article.title }}</h2>
         <div class="metadata mb-4">ajouté le {{ article.createdAt | date('d/m/Y')}} à {{ article.createdAt | date('H:i')}} dans la catégorie {{ article.category.title }}</div>
         <div class="content p-2">
-            <img src={{ article.image }} alt="" class="pr-4">
+        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="20%">
             {{ article.content | raw }}
             <div class="mb-4">Prix : {{ article.price | raw }}€
             </div> 
@@ -36,3 +36,5 @@
     </section>
     {% endif %}-->
 {% endblock %}
+
+

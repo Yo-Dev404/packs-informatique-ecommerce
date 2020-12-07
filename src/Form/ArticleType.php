@@ -6,10 +6,9 @@ use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleType extends AbstractType
 {
@@ -22,15 +21,8 @@ class ArticleType extends AbstractType
                'choice_label' => 'title' 
             ])
             ->add('content')
-            ->add('image')
+            ->add('imageFile', VichImageType::class)
             ->add('price')
-            //->add('images', FileType::class, [
-               // 'classe' => Image::class,
-                //'label' => false,
-                //'mapped' => false,
-                //'required' => false
-          //  ])
-    
         ;
     }
 

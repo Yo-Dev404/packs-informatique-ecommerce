@@ -20,12 +20,15 @@
                     <a class="nav-link m-2" href="{{ path('site')}}">Articles Disponibles
                     <span class="sr-only">(current)</span></a>
                 </li>
+               
+                 
+                {%  if app.user  %}
                 <li class="nav-item">
                     <a class="nav-link m-2" href="{{ path('site_create') }}">Ajouter articles</a>
                 </li>
-                 
-                
-          
+      
+                            
+                {% endif %}
                 {% if not app.user %}
                 <li class="nav-item">
                     <a href="{{ path('security_login') }}" class="nav-link m-2"> Connexion </a>
@@ -43,6 +46,9 @@
                  <li class="nav-item">
                         <a class="nav-link m-2" href="{{ path('cart_index') }}">Panier</a>
                     </li>
+                     <li class="nav-item">
+                 <a href="{{ path('contact') }}" class="nav-link m-2">Contact</a>
+                </li>
             </ul>
         </div> 
     </nav>

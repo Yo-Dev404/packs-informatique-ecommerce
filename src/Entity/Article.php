@@ -4,12 +4,17 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
+use DateTime;
+use Gedmo\Mapping\Annotation\Timestampable;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -40,9 +45,20 @@ class Article
     private $image;
 
     /**
+    * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
+    * @var File     
+    */
+    private $imageFile;
+
+    /**
+     * Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
+     * @var \DateTime
+
      */
     private $createdAt;
+
+
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
@@ -95,19 +111,35 @@ class Article
 
         return $this;
     }
-
-
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage($image)
     {
         $this->image = $image;
 
         return $this;
     }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if($image){
+            $this->createdAt = new DateTime('now');
+        }
+
+        return $this;
+    }
+
+
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -176,34 +208,3 @@ class Article
         return $this;
     }
 }
-
-    /**
-     *@return Collection|Image[]
-     */
-    //public function getImages(): Collection
-//{
-   ///     return $this->images;
-   // }
-
-    //public function addImage(Image $image): self
-    //{
-     //   if (!$this->images->contains($image)) {
-      //      $this->images[] = $image;
-       //     $image->setArticle($this);
-       // }
-
-       // return $this;
-   // }
-
-   // public function removeImage(Image $image): self
-    //{
-     //   if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-       //     if ($image->getArticle() === $this) {
-         //       $image->setArticle(null);
-           // }
-       // }
-
-       // return $this;
-   // }
-//}

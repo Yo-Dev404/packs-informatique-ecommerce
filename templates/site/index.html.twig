@@ -10,7 +10,7 @@
         <h2>{{ article.title }}</h2>
         <div class="metadata">ajouté le {{ article.createdAt | date('d/m/Y')  }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{ article.category.title }}</div>
         <div class="content">
-            <img src="{{ article.image }}" class="mb-5 mt-5 pr-4" alt="">
+        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="20%">
            {{ article.content | raw }}
             <a href="{{  path('site_show', { 'id' : article.id })  }}" class="btn btn-primary ml-3">Detail</a>
          

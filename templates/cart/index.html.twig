@@ -6,7 +6,7 @@
 
 {% block body %}
     <div class="bg-light p-3">
-        <h1>Votre panier</h1>
+        <h1>Panier</h1>
     </div>
 
     {% if items | length > 0 %}
@@ -47,7 +47,7 @@
             </tfoot>
         </table>
     {% else %}
-        <p>Surprise, c'est vide !</p>
+        <h4 class="m-4 p-4">Votre panier est vide 😈 </h4>
     {% endif %}
 
 {% endblock %}

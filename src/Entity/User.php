@@ -46,6 +46,11 @@ class User implements UserInterface
      */
     public $confirm_password;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $activation_token;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,7 @@ class User implements UserInterface
         return $this;
     }
 
+
     public function eraseCredentials(){}
         
     public function getSalt(){}
@@ -94,5 +100,17 @@ class User implements UserInterface
     public function getRoles()
     {
         return ['ROLE_USER'];
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
+
+        return $this;
     }
 }
