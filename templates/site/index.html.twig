@@ -7,12 +7,12 @@
 
 {% for article in articles %}
     <article>
-        <h2>{{ article.title }}</h2>
-        <div class="metadata">ajouté le {{ article.createdAt | date('d/m/Y')  }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{ article.category.title }}</div>
+        <h2 class="mt-4">{{ article.title }}</h2>
+        <div class="metadata m-2 p-2">Ajouté le {{ article.createdAt | date('d/m/Y')  }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{ article.category.title }}</div>
         <div class="content">
         <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="20%">
-           {{ article.content | raw }}
-            <a href="{{  path('site_show', { 'id' : article.id })  }}" class="btn btn-primary ml-3">Detail</a>
+          
+            <a href="{{  path('site_show', { 'id' : article.id })  }}" class=" m-4 btn btn-primary ml-3">Detail</a>
          
         </div>  
     </article>

@@ -13,17 +13,17 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    
+                    <th>Titre</th>
+                    <th>Prix</th>
+                    <th>Quantitée</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in items %}
                     <tr>
-                        <td>{{ item.article.id }}</td>
+                     
                         <td>{{ item.article.title }}</td>
                         <td>{{ item.article.price }}€</td>
                         <td>{{ item.quantity }}</td>

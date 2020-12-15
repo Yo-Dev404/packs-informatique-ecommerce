@@ -7,9 +7,9 @@
         {% block stylesheets %}
         {% endblock %}
     </head>
-    <body>
+    <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ path('home') }}">Packs-informatique</a> 
+        <a class="navbar-brand" href="{{ path('home') }}"> Packs-informatique</a> 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,7 +20,7 @@
                     <a class="nav-link m-2" href="{{ path('site')}}">Articles Disponibles
                     <span class="sr-only">(current)</span></a>
                 </li>
-               
+
                  
                 {%  if app.user  %}
                 <li class="nav-item">
