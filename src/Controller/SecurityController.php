@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
-            /*$message =(new MailerInterface('Activation de votre compte'))
+            $message =(new MailerInterface('Activation de votre compte'))
                 // on attribut l'expediteur
                 ->setFrom('packs-informatique@sfr.fr')
                 // destinataire
@@ -48,7 +48,7 @@ class SecurityController extends AbstractController
 
                 // ON envoie
                 $mailer->send($message);
-           */ return $this->redirectToRoute('security_login');
+           return $this->redirectToRoute('security_login');
         }
         
       //  $message = (new MailerInterface('Activation de votre compte'));
